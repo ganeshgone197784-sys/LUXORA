@@ -1,3 +1,4 @@
+import AuthModal from '@/components/AuthModal';
 import BrandIntro from '@/components/BrandIntro';
 import Collections from '@/components/Collections';
 import Drawers from '@/components/Drawers';
@@ -30,6 +31,7 @@ export default function Home() {
       </main>
       <Footer />
       <Drawers />
+      <AuthModal />
       <Toast />
     </StoreProvider>
   );
