@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useStore } from './StoreProvider';
 
 export default function Navbar() {
-  const { cartCount, wish, query, search, showFilter, setDrawer, notify } = useStore();
+  const { cartCount, wish, query, search, showFilter, setDrawer, user, setAuthOpen } = useStore();
   const [menu, setMenu] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const input = useRef<HTMLInputElement>(null);
@@ -31,8 +31,8 @@ export default function Navbar() {
           <button aria-label="Search" onClick={() => setSearchOpen((s) => !s)}>
             <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="M20 20l-4-4" /></svg>
           </button>
-          <button aria-label="Account" onClick={() => notify('Accounts arrive with the backend phase')}>
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4 4-6 8-6s8 2 8 6" /></svg>
+          <button aria-label="Account" onClick={() => setAuthOpen(true)}>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4 4-6 8-6s8 2 8 6" /></svg>{user && <span className="n" style={{ width: 8, height: 8, minWidth: 8, padding: 0, top: 8, right: 8 }} />}
           </button>
           <button aria-label="Wishlist" onClick={() => setDrawer('wish')}>
             <svg viewBox="0 0 24 24"><path d="M12 20s-8-5-8-11a4.5 4.5 0 018-2.5A4.5 4.5 0 0120 9c0 6-8 11-8 11z" /></svg>
